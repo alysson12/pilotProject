@@ -21,22 +21,27 @@ public class FuncionalTest {
     public void realizaAcesso() throws Exception{
         acessoPaginaLogin();
         dadosUsuarioLogin();
-        selecaoPerfil();
+        selecaoCliente();
+        buscandoVendas();
         fechaNavegador();
     }
 
 
     private void acessoPaginaLogin(){
-        this.paginaBase.navegacaoPagina("http://car.java2.ti.lemaf.ufla.br/#/intranet/acesso");
+        this.paginaBase.navegacaoPagina("http://192.168.121.211:8080/retaguarda/retaguarda/index/show");
     }
 
     private void dadosUsuarioLogin(){
         this.paginaLogin = new PaginaLogin(this.paginaBase.getDriver());
-        this.paginaPerfil = paginaLogin.logar("06926933600", "230503");
+        this.paginaPerfil = paginaLogin.logar("alysson.pereira@equals.com.br", "123456");
     }
 
-    private void selecaoPerfil(){
-        this.paginaInicial = paginaPerfil.selecionarPerfil("GO");
+    private void selecaoCliente(){
+        this.paginaInicial = paginaPerfil.emularAcesso("TORRA TORRA");
+    }
+
+    private void buscandoVendas() {
+        this.paginaInicial.AdquirentesVendas();
     }
 
 
