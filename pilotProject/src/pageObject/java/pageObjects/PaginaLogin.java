@@ -17,15 +17,13 @@ public class PaginaLogin extends PaginaBase {
 
     private void realizaLogin (String userName, String userPass){
 
-        getDriver().findElement (By.id("intranetLink")).click();
+        getDriver().findElement(By.id("username")).clear();
+        getDriver().findElement(By.id("username")).sendKeys(userName);
 
-        getDriver().findElement(By.xpath("//*[@id=\"view\"]/div/div[2]/form/div[1]/input")).clear();
-        getDriver().findElement(By.xpath("//*[@id=\"view\"]/div/div[2]/form/div[1]/input")).sendKeys(userName);
+        getDriver().findElement(By.id("password")).clear();
+        getDriver().findElement(By.id("password")).sendKeys(userPass);
 
-        getDriver().findElement(By.xpath("//*[@id=\"view\"]/div/div[2]/form/div[2]/input")).clear();
-        getDriver().findElement(By.xpath("//*[@id=\"view\"]/div/div[2]/form/div[2]/input")).sendKeys(userPass);
-
-        getDriver().findElement(By.xpath("//*[@id=\"view\"]/div/div[2]/form/div[3]/div[2]/input")).click();
+        getDriver().findElement(By.xpath("//*[@id=\"loginForm\"]/ul/li[4]/div/button")).click();
 
 
     }
